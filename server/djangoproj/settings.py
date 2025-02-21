@@ -62,7 +62,9 @@ TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [
-            os.path.join(BASE_DIR,'frontend/static')
+            os.path.join(BASE_DIR,'frontend/static'),
+            os.path.join(BASE_DIR, 'frontend/build'),
+            os.path.join(BASE_DIR, 'frontend/build/static'),
         ],
         'APP_DIRS': True,
         'OPTIONS': {
@@ -84,8 +86,12 @@ WSGI_APPLICATION = 'djangoproj.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'roster_craft_db',  # The name of the MySQL database you just created
+        'USER': 'andrew_debyl',  # The MySQL user you created
+        'PASSWORD': '1h48&hfl4*f',  # The password for that user
+        'HOST': 'localhost',  # Or the IP of your MySQL server if not local
+        'PORT': '3306',  # Default MySQL port
     }
 }
 
@@ -137,5 +143,7 @@ MEDIA_URL = '/media/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR,'frontend/static')
+    os.path.join(BASE_DIR,'frontend/static'),
+    os.path.join(BASE_DIR, 'frontend/build'),
+    os.path.join(BASE_DIR, 'frontend/build/static'),
 ]
